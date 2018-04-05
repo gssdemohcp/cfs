@@ -1,0 +1,179 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="generated.app.controller.14819016772901124_S2" xmlns="sap.ui.table"
+	xmlns:c="sap.ui.core" xmlns:m="sap.m" xmlns:tnt="sap.tnt" xmlns:viz="sap.viz.ui5.controls" xmlns:layout="sap.ui.layout"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data">
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<m:Button id="sideNavigationToggleButton" icon="sap-icon://menu2" type="Transparent" press="onSideNavButtonPress">
+					<m:layoutData>
+						<m:OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</m:layoutData>
+				</m:Button>
+				<!--<m:ToolbarSpacer width="20px"/>-->
+				<m:Button icon="sap-icon://arrow-left" tooltip="Back To Customer" press="handleBackPress"/>
+				<m:ToolbarSpacer width="338px"/>
+				<m:Image src='/webapp/image/logo.png'/>
+				<!--<m:ToolbarSpacer width="300px"/>-->
+				<m:Text text="{i18n>OTPage}"/>
+				<tnt:ToolHeaderUtilitySeparator/>
+				<m:ToolbarSpacer>
+					<m:layoutData>
+						<m:OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px"/>
+					</m:layoutData>
+				</m:ToolbarSpacer>
+				<m:Button icon="sap-icon://log" tooltip="Logoff" class="logoff" press="handleLogoffPress"/>
+				<m:Button text="Alan Smith" type="Transparent">
+					<m:layoutData>
+						<m:OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</m:layoutData>
+				</m:Button>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation expanded="false" itemSelect="onItemSelect" class="side-navigation-demo">
+				<tnt:NavigationList>
+					<tnt:NavigationListItem text="{i18n>homePage}" expanded='true' icon="sap-icon://bbyd-dashboard" select="_onStandardTilePress3"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="{i18n>Last10Page}" icon="sap-icon://sales-document" select="_onStandardTilePress"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="{i18n>OTPage}" icon="sap-icon://order-status" select="_onStandardTilePress1"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="{i18n>SOPage}" icon="sap-icon://sales-order" select="salesOrder"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="{i18n>OQPage}" icon="sap-icon://sales-quote" select="_onStandardTilePress5"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="{i18n>SalesDocPage}" icon="sap-icon://inspection" select="_onStandardTilePress2"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="{i18n>DeliveryPage}" icon="sap-icon://shipping-status" select="_onStandardTilePress6"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="{i18n>BillingDocPage}" icon="sap-icon://sales-order" select="_onStandardTilePress9"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="{i18n>OBDPage}" icon="sap-icon://employee-approvals" select="_onStandardTilePress10"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="{i18n>SalesDocBillPage}" icon="sap-icon://employee-rejections" select="_onStandardTilePress8"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="{i18n>contactPage}" icon="sap-icon://customer-and-contacts" select="_onStandardTilePress7"></tnt:NavigationListItem>
+				</tnt:NavigationList>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<m:NavContainer id="pageContainer">
+				<m:pages>
+					<m:ScrollContainer id="root1" horizontal="false" vertical="true" height="100%">
+						<m:HBox>
+							<m:VBox>
+								<m:Image class="sapUiTinyMarginTopBottom sapUiTinyMarginBegin" src="/webapp/image/cust.png"/>
+							</m:VBox>
+							<m:VBox>
+								<m:Text class="sapUiTinyMarginTopBottom sapUiTinyMarginBegin" text="Classification Number:06 Industry:MBAU" state=""/>
+								<m:Text class="sapUiTinyMarginBottom sapUiTinyMarginBegin" text="Key Figure's Annual Sales: 0,00 in 0000" state=""/>
+							</m:VBox>
+							<m:VBox>
+								<m:Text class="address sapUiTinyMarginTopBottom" id="Address" title=""
+									text="House No/Street:{/Address/0/HOUSE_NO-STREET} City:{/Address/0/CITY}"/>
+								<m:Text class="address1 sapUiTinyMarginBottom" id="Address1" title="" text="Region:{/Address/0/REGION} Postal Code:{/Address/0/POSTALCODE}"/>
+							</m:VBox>
+						</m:HBox>
+						<!--<m:Panel expandable="true" expanded="false" headerText="Analytics" width="auto" class="sapUiResponsiveMargin">-->
+							<!--<m:content>-->
+							<!--	<viz:VizFrame xmlns="sap.viz" height="400px" width="800px" id="idpiechart2" vizType="pie"/>-->
+							<!--</m:content>-->
+						<!--</m:Panel>-->
+						<m:content>
+							<Table id="table" rows="{/OrderTracking}" selectionMode="Single" mode="None" inset="false" ariaLabelledBy="title">
+								<toolbar>
+									<m:Toolbar>
+										<m:content>
+											<m:Title id="title"/>
+											<m:ToolbarSpacer/>
+											<m:Button id="column" icon="sap-icon://action-settings" tooltip="show/hide columns" press="getcolumn">
+												<m:customData>
+													<c:CustomData key="multi" value="true"/>
+													<c:CustomData key="remember" value="true"/>
+												</m:customData>
+											</m:Button>
+											<!--<m:Button icon="sap-icon://pie-chart" tooltip="Anyalytics for Order Tracking" press="onLoad"/>-->
+											<m:Button icon="sap-icon://complete" tooltip="Show Delivery Status with Not Yet Processed only" press="getTAonly"/>
+											<m:Button icon="sap-icon://decline" tooltip="clear selection/sort/filter" press="clearSelection"/>
+											<m:SearchField id="searchField" class="searchFiled" placeholder="Sales Order" value="{ui>/globalFilter}" search="filterGlobally" width="16rem"/>
+										</m:content>
+									</m:Toolbar>
+								</toolbar>
+								<columns>
+									<Column width="auto" filterProperty="Created on" defaultFilterOperator="EQ" sortProperty="Created on" tooltip="Created On">
+										<m:Label text="{i18n>createddatecolumnTitle}"/>
+										<template>
+											<m:Text text="{Created on}"/>
+										</template>
+									</Column>
+									<Column width="auto" sortProperty="ID" tooltip="Sales Order">
+										<m:Label text="ID"/>
+										<template>
+											<m:Text text="{ID}"/>
+										</template>
+									</Column>
+									<Column width="auto" filterProperty="Customer number" defaultFilterOperator="EQ" sortProperty="Customer number" tooltip="Sold To Party" visible="false">
+										<m:Label text="{i18n>stpidcolumnTitle}"/>
+										<template>
+											<m:Text text="{Customer number}"/>
+										</template>
+									</Column>
+									<Column width="auto" filterProperty="Material number" defaultFilterOperator="EQ" sortProperty="Material number" tooltip="Material">
+										<m:Label text="{i18n>matTitle}"/>
+										<template>
+											<m:Text text="{Material number}"/>
+										</template>
+									</Column>
+									<Column width="auto" filterProperty="Overall rejection status" defaultFilterOperator="EQ" sortProperty="Overall rejection status" tooltip="Rejection Status" visible="false">
+										<m:Label text="{i18n>rejstTitle}"/>
+										<template>
+											<m:Text text="{Overall rejection status}"/>
+										</template>
+									</Column>
+									<Column width="auto" filterProperty="Reason for rejection" defaultFilterOperator="EQ" sortProperty="Reason for rejection" tooltip="Reason For Rejection" visible="false">
+										<m:Label text="{i18n>rejrsnTitle}"/>
+										<template>
+											<m:Text text="{Reason for rejection}"/>
+										</template>
+									</Column>
+									<Column width="auto" filterProperty="Billing block" defaultFilterOperator="EQ" sortProperty="Billing block" tooltip="Billing Block" visible="false">
+										<m:Label text="Billing Block"/>
+										<template>
+											<m:Text text="{Billing block}"/>
+										</template>
+									</Column>
+									<Column width="auto" filterProperty="Delivery block" defaultFilterOperator="EQ" sortProperty="Delivery block" tooltip="Delivery Block For Item" visible="false">
+										<m:Label text="{i18n>dvyblkTitle}"/>
+										<template>
+											<m:Text text="{Delivery block}"/>
+										</template>
+									</Column>
+									<Column width="auto" filterProperty="Base unit" defaultFilterOperator="EQ" sortProperty="Base unit" tooltip="Base Unit Of Measure" visible="false">
+										<m:Label text="{i18n>uomTitle}"/>
+										<template>
+											<m:Text text="{Base unit}"/>
+										</template>
+									</Column>
+									<Column width="auto" filterProperty="Net value" defaultFilterOperator="EQ" sortProperty="Net value" tooltip="Net Value">
+										<m:Label text="{i18n>nvTitle}"/>
+										<template>
+											<m:Text text="{Net value}"/>
+										</template>
+									</Column>
+									<Column width="auto" filterProperty="Sales organization" defaultFilterOperator="EQ" sortProperty="Sales organization" tooltip="Sales Organization" visible="false">
+										<m:Label text="{i18n>salorgTitle}"/>
+										<template>
+											<m:Text text="{Sales organization}"/>
+										</template>
+									</Column>
+									<Column width="auto" filterProperty="Sales office" defaultFilterOperator="EQ" sortProperty="Sales office" tooltip="Sales Office" visible="false">
+										<m:Label text="{i18n>soTitle}"/>
+										<template>
+											<m:Text text="{Sales office}"/>
+										</template>
+									</Column>
+									<Column width="auto" filterProperty="Employee responsible" defaultFilterOperator="EQ" sortProperty="Employee responsible" tooltip="Employee Responsible ID" visible="false">
+										<m:Label text="{i18n>empresidTitle}"/>
+										<template>
+											<m:Text text="{Employee responsible}"/>
+										</template>
+									</Column>
+								</columns>
+							</Table>
+						</m:content>
+					</m:ScrollContainer>
+				</m:pages>
+			</m:NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>

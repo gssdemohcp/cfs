@@ -1,0 +1,110 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="generated.app.controller.Customer" xmlns="sap.m"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:core="sap.ui.core"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:tnt="sap.tnt" xmlns:layout="sap.ui.layout">
+	<!--<Page title="{i18n>title}" class="sapUiContentPadding" showNavButton="false" enableScrolling="false">-->
+	<Toolbar>
+		<Button icon="sap-icon://arrow-left" tooltip="Back To Customer" press="handleBackPress"/>
+		<ToolbarSpacer width="338px"/>
+		<Image src="/webapp/image/logo.png"/>
+		<!--<ToolbarSpacer width="300px"/>-->
+		<Text class="sapUiResponsiveMargin" text="Customer Details"/>
+		<ToolbarSpacer>
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px"/>
+			</layoutData>
+		</ToolbarSpacer>
+		<Button icon="sap-icon://log" tooltip="Logoff" class="logoff" press="handleLogoffPress"/>
+		<Button text="Alan Smith" type="Transparent" press="handleUserNamePress"/>
+	</Toolbar>
+	<VBox fitContainer="true">
+		<!--<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="ZCFS_CustSet" persistencyKey="SmartFilter_Explored"-->
+		<!--	basicSearchFieldName="Kunnr" enableBasicSearch="true">-->
+		<!--	<smartFilterBar:controlConfiguration>-->
+		<!--		<smartFilterBar:ControlConfiguration key="Employeeresponsible">-->
+		<!--			<smartFilterBar:defaultFilterValues>-->
+		<!--				<smartFilterBar:SelectOption low="00864535"></smartFilterBar:SelectOption>-->
+		<!--			</smartFilterBar:defaultFilterValues>-->
+		<!--		</smartFilterBar:ControlConfiguration>-->
+		<!--		<smartFilterBar:ControlConfiguration key="Name1">-->
+		<!--			<smartFilterBar:defaultFilterValues>-->
+		<!--				<smartFilterBar:SelectOption low="SNM Medical Groups LLC"></smartFilterBar:SelectOption>-->
+		<!--			</smartFilterBar:defaultFilterValues>-->
+		<!--		</smartFilterBar:ControlConfiguration>-->
+		<!--	</smartFilterBar:controlConfiguration>-->
+			<!--layout data used to make the table growing but the filter bar fixed -->
+		<!--	<smartFilterBar:layoutData>-->
+		<!--		<FlexItemData shrinkFactor="0"/>-->
+		<!--	</smartFilterBar:layoutData>-->
+		<!--</smartFilterBar:SmartFilterBar>-->
+		<smartTable:SmartTable id="SmartTable" entitySet="ZCFS_CustSet" smartFilterId="smartFilterBar" tableType="Table" useExportToExcel="true"
+			useVariantManagement="false" useTablePersonalisation="true" header="Customers" showRowCount="true"
+			persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" app:useSmartField="true" class="sapUiResponsiveContentPadding"
+			initiallyVisibleFields="Kunnr,Name1,Ort01,OpQuotCount,OpDelCount" showFullScreenButton="true">
+			<!--layout data used to make the table growing but the filter bar fixed -->
+			<smartTable:layoutData>
+				<FlexItemData growFactor="1" baseSize="0%"/>
+			</smartTable:layoutData>
+			<Table growing="true" growingDirection="Downwards" growingScrollToLoad="true">
+				<columns>
+					<!--<Column width="auto" hAlign="Left">-->
+					<!--	<customData>-->
+					<!--		<core:CustomData key="p13nData" value='\{"columnKey": "Ort01", "maxLength": "5","columnIndex":"3", "leadingProperty": "Ort01"}'/>-->
+					<!--	</customData>-->
+					<!--	<Text text="{/#ZCFS_Cust/Ort01/@sap:label}"/>-->
+					<!--</Column>-->
+					<!--<Column width="auto" hAlign="Left">-->
+					<!--	<customData>-->
+					<!--		<core:CustomData key="p13nData" value='\{"columnKey": "OpQuotCount", "maxLength": "5","columnIndex":"4", "leadingProperty": "OpQuotCount"}'/>-->
+					<!--	</customData>-->
+					<!--	<Text text="Open Quotations"/>-->
+					<!--</Column>-->
+					<!--<Column width="auto" hAlign="Left">-->
+					<!--	<customData>-->
+					<!--		<core:CustomData key="p13nData" value='\{"columnKey": "OpDelCount", "maxLength": "5","columnIndex":"5", "leadingProperty": "OpDelCount"}'/>-->
+					<!--	</customData>-->
+					<!--	<Text text="Open Deliveries"/>-->
+					<!--</Column>-->
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press="navigate">
+						<cells>
+							<!--<Text text="{Ort01}"/>-->
+							<!--<Text text="{OpQuotCount}"/>-->
+							<!--<Text text="{OpDelCount}"/>-->
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</smartTable:SmartTable>
+	</VBox>
+	<!--</Page>-->
+	<!--<Page title="{i18n>title}" showHeader="false" enableScrolling="false" height="500px">-->
+	<!--	<content>-->
+	<!--		<HBox>-->
+	<!--			<HBox>-->
+	<!--				<VBox>-->
+	<!--					<Image src="/webapp/cpi1.jpg"></Image>-->
+	<!--				</VBox>-->
+	<!--				<VBox>-->
+	<!--					<Text class="ManagerName sapUiTinyMarginTopBottom" text="Manager Name: Alan Smith" state=""/>-->
+	<!--					<Text class="sapUiTinyMarginBottom sapUiTinyMarginBegin" text="" state=""/>-->
+	<!--				</VBox>-->
+	<!--			</HBox>-->
+	<!--			<VBox>-->
+	<!--				<Text class="address sapUiTinyMarginTopBottom" id="Address" title="" text="House No/Street:51 City:New York"/>-->
+	<!--				<Text class="address1 sapUiTinyMarginBottom" id="Address1" title="" text="Region:New Jersey Postal Code:10978"/>-->
+	<!--			</VBox>-->
+	<!--		</HBox>-->
+	<!--		<TileContainer id="container" tileDelete="handleTileDelete" tiles="{/ZCFS_CustSet}">-->
+	<!--			<StandardTile id="CustomerTable" icon="sap-icon://customer-view" number="{Kunnr}"-->
+	<!--				title="{Name1} Quotations:{OpQuotCount} Deliveries:{OpDelCount}" info="{Ort01} City" press="tileNavigation"/>-->
+	<!--		</TileContainer>-->
+	<!--		<HBox>-->
+	<!--			<TileContainer id="container1" tileDelete="handleTileDelete" tiles="{/ZCFS_CustSet?$orderby=Name1}">-->
+	<!--				<StandardTile id="CustomerTable1" icon="sap-icon://customer-view" number="{Kunnr}"-->
+	<!--					title="{Name1} Quotations:{OpQuotCount} Deliveries:{OpDelCount}" info="{Ort01} City" press="tileNavigation"/>-->
+	<!--			</TileContainer>-->
+	<!--		</HBox>-->
+	<!--	</content>-->
+	<!--</Page>-->
+</mvc:View>

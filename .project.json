@@ -1,0 +1,45 @@
+{
+  "generation": [
+    {
+      "templateId": "build_import_prototype",
+      "templateVersion": "1.0.0",
+      "dateTimeStamp": "Mon, 19 Dec 2016 10:15:46 GMT"
+    },
+    {
+      "templateId": "ui5template.basicSAPUI5ApplicationComponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Wed, 15 Feb 2017 08:36:46 GMT"
+    },
+    {
+      "templateId": "servicecatalog.connectivityComponent",
+      "templateVersion": "0.0.0",
+      "dateTimeStamp": "Wed, 08 Feb 2017 13:33:09 GMT"
+    }
+  ],
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  },
+  "hcpdeploy": {
+    "account": "p1942219772trial",
+    "name": "cfsfinal",
+    "lastVersionWeTriedToDeploy": "1.0.0"
+  },
+  "mockpreview": {
+    "mockUri": "/EIH/sap/opu/odata/SAP/ZCFS_CUSTOMER_LIST_SRV",
+    "metadataFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  },
+  "hybrid": {
+    "backendDestination": "EIH"
+  },
+  "deploy": {
+    "destination": "EIH",
+    "name": "ZCFS"
+  }
+}

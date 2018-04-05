@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:viz="sap.viz.ui5.controls" xmlns:layout="sap.ui.layout"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data" xmlns:f="sap.ui.layout.form">
+	<Popover showHeader="false" contentWidth="50%" contentHeight="60%" placement="Horizontal">
+		<!--<NavContainer id="otcCon">-->
+			<Page title="Analytics for Order Tracking">
+				<content>
+					<viz:VizFrame xmlns="sap.viz" height="73px" width="343px" id="idpiechart2" vizType="pie"/>
+				</content>
+				<!--<footer>-->
+				<!--		<Toolbar>-->
+				<!--			<content>-->
+				<!--				<ToolbarSpacer/>-->
+				<!--				<Button text="Submit" width="25%" id="ticketsubmit" type="Accept" tooltip="Submit Ticket" press="submitticket"/>-->
+				<!--				<Button text="Cancel" width="25%" id="ticketcancel" type="Reject" tooltip="Cancel Ticket" press="rejectticket"/>-->
+				<!--			</content>-->
+				<!--		</Toolbar>-->
+				<!--</footer>-->
+			</Page>
+		<!--</NavContainer>-->
+	</Popover>
+</core:FragmentDefinition>
